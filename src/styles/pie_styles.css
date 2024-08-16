@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Niconne&display=swap");
+
+.pie_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  background: #957dad;
+  color: white;
+}
+
+.pie_headers {
+  font-size: 50px;
+  font-weight: 600;
+  font-family: "Niconne", cursive;
+  color: #e0d6e9;
+  text-shadow:
+    2px 2px 0px #957dad,
+    4px 4px 0px #ee4b2b,
+    6px 6px 0px #00c2cb;
+}
+
+img {
+  width: 500px;
+  height: 300px;
+}
+
+img#pie {
+  width: 500px;
+  height: auto;
+  position: absolute;
+  top: 410px;
+  right: 400px;
+  border: 2px ridge grey;
+}
+
+img#arrow {
+  position: absolute;
+  right: 690px;
+  top: 60px;
+  transform: rotate(115deg) scale(1, -1) scaleY(1);
+  height: 400px;
+  width: 150px;
+  display: flex;
+}
+
+img#luffy {
+  width: 30px;
+  height: 20px;
+}
+
+button {
+  border-radius: 5px;
+  border: none;
+  background-color: lightsalmon;
+  color: white;
+  font-size: 18px;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+button {
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 5px;
+  padding: 5px;
+}
+
+#joke {
+  position: relative;
+  top: -25px;
+  right: 50px;
+}
