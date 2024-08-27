@@ -1,3 +1,5 @@
+const gamelog = document.querySelector("#log");
+
 function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
 
@@ -19,6 +21,7 @@ function getPlayerChoice() {
       'Please enter either "Rock", "Paper" or "Scissors" (not case-sensitive)',
     ).toLowerCase();
   }
+
   return input;
 }
 
@@ -68,8 +71,12 @@ function evaluateWinner(computerChoice, playerChoice) {
 
 function playRound() {
   let computerChoice = getComputerChoice();
+
+  gamelog.innerText += "Enter your bet: Rock, paper or scissors\n\n";
   let playerChoice = getPlayerChoice();
 
+  gamelog.innerText += `Player chose ${playerChoice}\n\n`;
+  gamelog.innerText += `Computer chose ${computerChoice}\n\n`;
   return evaluateWinner(computerChoice, playerChoice);
 }
 
@@ -77,6 +84,7 @@ function playGame() {
   let playerScore = 0;
   let computerScore = 0;
   let winner = "";
+  gamelog.innerText += "Game log\n\n";
 
   while (playerScore < 3 && computerScore < 3) {
     winner = playRound();
@@ -84,22 +92,25 @@ function playGame() {
     switch (winner) {
       case "player":
         playerScore++;
+        gamelog.innerText += "One point for the player.\n\n";
         break;
       case "computer":
         computerScore++;
+        gamelog.innerText += "One point for the computer.\n\n";
         break;
     }
+    gamelog.innerText += `Player score: ${playerScore} || Computer score: ${computerScore}\n\n`;
     alert(`Player score: ${playerScore}`);
     alert(`Computer score: ${computerScore}`);
   }
 
   if (playerScore === 3) {
     alert("You win the game!");
+    gamelog.innerText += "The player wins the game\n\n";
   }
 
   if (computerScore === 3) {
     alert("You lose the game!");
+    gamelog.innerText += "The computer wins the game\n\n";
   }
 }
-
-playGame();
