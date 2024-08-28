@@ -1,7 +1,6 @@
-const gamelog = document.querySelector("#log");
+const gamelog = document.getElementById("log");
 const playerScoreElement = document.getElementById("playerScore");
 const computerScoreElement = document.getElementById("computerScore");
-const resultPopup = document.getElementById("resultPopup");
 let playerScore = 0;
 let computerScore = 0;
 
@@ -23,7 +22,7 @@ function evaluateWinner(computerChoice, playerChoice) {
   let result = "";
   let winner = "";
   if (playerChoice === computerChoice) {
-    result = "It's a tie";
+    result = "It's a tie!";
   } else if (
     (playerChoice === "rock" && computerChoice === "scissors") ||
     (playerChoice === "paper" && computerChoice === "rock") ||
@@ -36,9 +35,19 @@ function evaluateWinner(computerChoice, playerChoice) {
     winner = "computer";
   }
   addLogEntry(
-    `You chose ${playerChoice} and the computer chose ${computerChoice}. ${result}`,
+    `${translateChoice(playerChoice)}(P) vs. ${translateChoice(computerChoice)}(C). ${result}`,
   );
   return winner;
+}
+
+function translateChoice(choice) {
+  const hashTable = {
+    rock: "✊🏻",
+    paper: "🖐🏻",
+    scissors: "✌🏻",
+  };
+
+  return hashTable[choice];
 }
 
 function playRound(playerChoice) {
@@ -74,6 +83,8 @@ function checkGameOver() {
 }
 
 function showResultPopup(message) {
+  const resultPopup = document.getElementById("resultPopup");
+
   resultPopup.innerText = message;
   resultPopup.style.display = "block";
   setTimeout(() => {
