@@ -3,27 +3,24 @@ function createGrid() {
 
   container.style.display = "flex";
   container.style.flexWrap = "wrap";
-  container.style.width = "80vw";
-  container.style.maxWidth = "800px";
-  container.style.gap = "10px";
+  container.style.width = "70vw";
   container.style.position = "relative";
-  container.style.top = "230px";
+  container.style.top = "80px";
+  container.style.right = "-230px";
+  container.style.boxSizing = "border-box";
+  container.style.borderWidth = "20px";
+  container.style.borderColor = "darkblue";
 
-  for (let i = 1; i <= 16; i++) {
-    console.log("w");
+  for (let number = 1; number <= 70; number++) {
     const item = document.createElement("div");
-    item.textContent = `Item ${i}`;
-
-    item.style.flex = "1 0 21%";
-    item.style.boxSizing = "border-box";
-    item.style.height = "150px";
+    item.style.flex = "1 0 10%";
+    item.style.boxSizing = "content-box";
+    item.style.height = "115px";
+    item.style.width = "75px";
     item.style.backgroundColor = "white";
     item.style.display = "flex";
     item.style.justifyContent = "center";
     item.style.alignItems = "center";
-    item.style.color = "black";
-    item.style.fontSize = "20px";
-    item.style.textAlign = "center";
 
     container.appendChild(item);
   }
@@ -31,7 +28,6 @@ function createGrid() {
   document.querySelectorAll("div").forEach((button) => {
     button.addEventListener("mouseover", (event) => {
       button.style.backgroundColor = "black";
-      button.style.color = "white";
     });
   });
 }
