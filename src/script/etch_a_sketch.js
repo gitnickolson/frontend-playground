@@ -101,16 +101,28 @@ function styleGameContainer(gameContainer, columns) {
     gameContainer.style.display = "grid";
     gameContainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
     gameContainer.style.gap = "2px";
-    gameContainer.style.width = "70vw";
-    gameContainer.style.maxWidth = "700px";
     gameContainer.style.aspectRatio = "1";
     gameContainer.style.border = "5px solid #9c6bf8";
     gameContainer.style.backgroundColor = "white";
     gameContainer.style.boxShadow = "0px 4px 10px rgba(0, 0, 0, 1)";
     gameContainer.style.position = "fixed";
     gameContainer.style.top = "50%";
-    gameContainer.style.right = "20px";
     gameContainer.style.transform = "translateY(-50%)";
+
+    adjustGameContainerSize(gameContainer);
+    window.addEventListener("resize", () => adjustGameContainerSize(gameContainer));
+}
+
+function adjustGameContainerSize(gameContainer) {
+    if (window.innerWidth > 1700) {
+        gameContainer.style.width = "120vw";
+        gameContainer.style.maxWidth = "1200px";
+        gameContainer.style.right = "20px"
+    } else {
+        gameContainer.style.width = "70vw";
+        gameContainer.style.maxWidth = "700px";
+        gameContainer.style.right = "20px";
+    }
 }
 
 function addHeading() {
@@ -118,7 +130,6 @@ function addHeading() {
     heading.innerText = "Etch a Sketch";
 
     heading.style.fontFamily = "'Pacifico', sans-serif";
-    heading.style.fontSize = "50px";
 
     heading.style.position = "fixed";
     heading.style.top = "20px";
@@ -127,7 +138,6 @@ function addHeading() {
     heading.style.backgroundColor = "white";
     heading.style.border = "3px solid #9c6bf8";
     heading.style.borderRadius = "15px";
-    heading.style.padding = "10px 20px";
 
     heading.style.color = "#9c6bf8";
     heading.style.textShadow = "2px 2px 10px rgba(0, 0, 0, 0.4)";
@@ -137,17 +147,26 @@ function addHeading() {
     heading.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.1)";
 
     document.body.appendChild(heading);
+
+    adjustHeadingSize(heading);
+    window.addEventListener("resize", () => adjustHeadingSize(heading));
+}
+
+function adjustHeadingSize(heading) {
+    if (window.innerWidth > 1700) {
+        heading.style.fontSize = "80px";
+        heading.style.padding = "20px 40px";
+    } else {
+        heading.style.fontSize = "50px";
+        heading.style.padding = "10px 20px";
+    }
 }
 
 function addScrollingTextBox() {
     const scrollingBox = document.createElement("div");
 
     scrollingBox.style.position = "absolute";
-    scrollingBox.style.top = "175px";
     scrollingBox.style.left = "20px";
-    scrollingBox.style.width = "42vw";
-    scrollingBox.style.maxWidth = "700px";
-    scrollingBox.style.height = "200px";
     scrollingBox.style.backgroundColor = "white";
     scrollingBox.style.border = "3px solid #9c6bf8";
     scrollingBox.style.borderRadius = "15px";
@@ -158,15 +177,32 @@ function addScrollingTextBox() {
     scrollText.innerText = "Welcome to my Etch-a-Sketch Game! Enjoy drawing and have fun! The goal is to create beautiful sketches with just your mouse! " + scrollString()
     scrollText.style.fontFamily = "Arial, sans-serif";
     scrollText.style.fontSize = "18px";
-    scrollText.style.color = "#9c6bf8";
+    scrollText.style.color = "black";
     scrollText.style.whiteSpace = "normal";
     scrollText.style.lineHeight = "1.5";
 
     scrollText.style.animation = "scroll-text 530s linear";
     scrollingBox.appendChild(scrollText);
 
+    adjustScrollingTextBoxSize(scrollingBox);
+    window.addEventListener("resize", () => adjustScrollingTextBoxSize(scrollingBox));
+
     document.body.appendChild(scrollingBox);
     initializeKeyframes()
+}
+
+function adjustScrollingTextBoxSize(scrollingBox) {
+    if (window.innerWidth > 1700) {
+        scrollingBox.style.top = "300px";
+        scrollingBox.style.width = "55vw";
+        scrollingBox.style.height = "300px";
+        scrollingBox.style.maxWidth = "900px";
+    } else {
+        scrollingBox.style.top = "175px";
+        scrollingBox.style.width = "42vw";
+        scrollingBox.style.height = "200px";
+        scrollingBox.style.maxWidth = "700px";
+    }
 }
 
 function initializeKeyframes() {
