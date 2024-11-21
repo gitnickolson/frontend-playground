@@ -114,7 +114,11 @@ function styleGameContainer(gameContainer, columns) {
 }
 
 function adjustGameContainerSize(gameContainer) {
+<<<<<<< Updated upstream
     if (window.innerWidth > 1700) {
+=======
+    if (window.innerWidth >= 1920) {
+>>>>>>> Stashed changes
         gameContainer.style.width = "120vw";
         gameContainer.style.maxWidth = "1200px";
         gameContainer.style.right = "20px"
