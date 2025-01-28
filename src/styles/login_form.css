@@ -4,11 +4,12 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  margin: 0;
 }
 
 #side_section {
   background: #f0e3da;
-  position: absolute;
+  position: fixed;
   left: 58vw;
   height: 100vh;
   width: 42vw;
@@ -20,4 +21,172 @@ body {
   font-family: Didot, serif;
   background: seashell;
   box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
+}
+
+#login_form {
+  padding-left: 2em;
+  padding-right: 2em;
+  background: seashell;
+  font-family: Didot, serif;
+}
+
+#email:valid,
+#password:valid {
+  border-color: green;
+}
+
+#email:invalid,
+#password:invalid {
+  border-color: red;
+}
+
+.form_text {
+  color: #b59377;
+  font-size: 1.3em;
+}
+
+#email_fields {
+  padding-top: 2em;
+  margin-bottom: 1em;
+}
+
+#email,
+#password {
+  border: 2px solid darkseagreen;
+  border-radius: 20px;
+  height: 2em;
+  width: 24em;
+  font-size: 1em;
+  padding-left: 1em;
+}
+
+#password_fields {
+  margin-bottom: 1em;
+}
+
+#forgot_password_button {
+  background: linear-gradient(to bottom, #4caf50, #2e7d32);
+  border: 1px solid #1b5e20;
+  color: white;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#forgot_password_button:hover {
+  background: linear-gradient(to bottom, #66bb6a, #388e3c);
+}
+
+#forgot_password_button:active {
+  background: linear-gradient(to bottom, #388e3c, #1b5e20);
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#oldschool_stuff {
+  margin-left: 15em;
+  margin-top: 1em;
+}
+
+#oldschool_ftw_text {
+  position: fixed;
+  color: #b59377;
+  font-size: 0.6em;
+  margin-left: 1.3em;
+}
+
+#login_button {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  border: 4px solid #957dad;
+  border-radius: 20px;
+  background: lavenderblush;
+  font-family: Didot, serif;
+  height: 2em;
+  width: 7em;
+  font-size: 1.3em;
+}
+
+#login_button:hover {
+  background: linear-gradient(to bottom, mediumpurple, darkslateblue);
+}
+
+#login_button:active {
+  background: linear-gradient(to bottom, seashell, seashell);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#create_account_box {
+  background: seashell;
+  margin-top: 5em;
+  height: 48em;
+  text-align: center;
+}
+
+#no_account_heading {
+  text-align: center;
+  font-size: 2em;
+  font-family: Didot, serif;
+  background: seashell;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
+}
+
+#register_button {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+  background-size: 300%;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow:
+    0 10px 20px rgba(255, 182, 193, 0.4),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  animation: gradientShift 3s ease infinite;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+#register_button:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 15px 30px rgba(255, 182, 193, 0.6),
+    0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+#register_button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 150%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-45deg);
+  transition: left 0.5s ease;
+}
+
+#register_button:hover:before {
+  left: 100%;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

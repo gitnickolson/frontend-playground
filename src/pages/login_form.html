@@ -15,7 +15,47 @@
       <div id="titlebox">
         <h2>Log in to your account</h2>
       </div>
-      <div id="form"></div>
+      <div id="login_form">
+        <form action="https://httpbin.org/post" method="post">
+          <div id="email_fields">
+            <label for="email" class="form_text">E-Mail</label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="mail@example.com"
+              required
+            />
+          </div>
+
+          <div id="password_fields">
+            <label for="password" class="form_text">Password</label><br />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              minlength="3"
+              maxlength="40"
+              required
+            />
+            <div id="oldschool_stuff">
+              <button type="button" id="forgot_password_button">
+                Forgot password?
+              </button>
+              <div id="oldschool_ftw_text">
+                <p>Oldschool buttons FTW!</p>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" id="login_button">Login</button>
+        </form>
+      </div>
+
+      <div id="create_account_box">
+        <p id="no_account_heading">No account yet?</p>
+        <button type="button" id="register_button">Create account</button>
+      </div>
     </div>
   </body>
 </html>
