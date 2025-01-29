@@ -98,24 +98,26 @@ body {
 }
 
 #login_button {
-  margin-top: 1em;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  background: #c0c0c0;
+  padding: 10px 20px;
+  border: 3px solid #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  outline: none;
+  cursor: pointer;
+  margin-top: 3em;
   margin-bottom: 2em;
-  border: 4px solid #957dad;
-  border-radius: 20px;
-  background: lavenderblush;
-  font-family: Didot, serif;
-  height: 2em;
-  width: 7em;
-  font-size: 1.3em;
-}
-
-#login_button:hover {
-  background: linear-gradient(to bottom, mediumpurple, darkslateblue);
 }
 
 #login_button:active {
-  background: linear-gradient(to bottom, seashell, seashell);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  background: #a0a0a0;
 }
 
 #create_account_box {
