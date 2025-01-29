@@ -53,3 +53,21 @@
   grid-column-end: 2;
   width: 39.7em;
 }
+
+#back_button {
+  border-radius: 5px;
+  border: none;
+  background-color: mediumpurple;
+  color: white;
+  font-size: 18px;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+#back_button {
+  transition: transform 0.3s ease-in-out;
+}
+
+#back_button:hover {
+  transform: scale(1.2);
+}
