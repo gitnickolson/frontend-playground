@@ -72,3 +72,8 @@
 #back_button:hover {
   transform: scale(1.2);
 }
+
+#disclaimer {
+  color: lightgrey;
+  font-size: 8px;
+}
