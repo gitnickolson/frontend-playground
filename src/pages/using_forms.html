@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>This is a form</title>
+  </head>
+  <body>
+    <div id="formdiv">
+      <form action="https://httpbin.org/post" method="post">
+        <label for="testerinoe">Type something!</label>
+        <input
+          type="text"
+          id="testerinoe"
+          name="some_text"
+          placeholder="Type here"
+        /><br />
+        <label for="user_email">Enter your (fake) mail address</label>
+        <input
+          type="email"
+          id="user_email"
+          name="email"
+          placeholder="mail@example.com"
+        /><br />
+        <label for="password">Enter your (fake) password</label>
+        <input type="password" id="password" name="password" /><br />
+        <label for="texttest">Enter some long text</label><br />
+        <textarea id="texttest" name="long_text"></textarea>
+
+        <h1>Ticket Type</h1>
+        <div>
+          <input type="radio" id="child" name="ticket_type" value="child" />
+          <label for="child">Child</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="adult"
+            name="ticket_type"
+            value="adult"
+            checked
+          />
+          <label for="adult">Adult</label>
+        </div>
+
+        <div>
+          <input type="radio" id="senior" name="ticket_type" value="senior" />
+          <label for="senior">Senior</label>
+        </div>
+
+        <h1>Pizza Toppings</h1>
+
+        <div>
+          <input type="checkbox" id="sausage" name="topping" value="sausage" />
+          <label for="sausage">Sausage</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="onions" name="topping" value="onions" />
+          <label for="onions">Onions</label>
+        </div>
+
+        <div>
+          <input
+            type="checkbox"
+            id="pepperoni"
+            name="topping"
+            value="pepperoni"
+          />
+          <label for="pepperoni">Pepperoni</label>
+        </div>
+
+        <div>
+          <input
+            type="checkbox"
+            id="mushrooms"
+            name="topping"
+            value="mushrooms"
+          />
+          <label for="mushrooms">Mushrooms</label>
+        </div>
+
+        <div>
+          <button type="reset">Reset</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
