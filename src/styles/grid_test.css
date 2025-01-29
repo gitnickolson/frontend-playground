@@ -1,0 +1,47 @@
+.floor {
+  height: 65vh;
+  width: 60vw;
+  border: 4px dashed mediumpurple;
+  background-color: lightblue;
+  position: fixed;
+  left: 19vw;
+  top: 17.5vh;
+  display: grid;
+  grid-template-columns: 20em 20em 20em 40em;
+  grid-template-rows: 25em 10em 25em;
+}
+
+.room {
+  border: 2px dotted lightyellow;
+}
+
+#livingroom {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+}
+
+#kitchen {
+  grid-column-start: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+#bedroom {
+  grid-row-start: 3;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+#bathroom {
+  grid-row-start: 3;
+  grid-column-start: 4;
+}
+
+#guests_restroom {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  width: 20em;
+  margin-left: 39.8em;
+}
