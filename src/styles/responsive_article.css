@@ -15,8 +15,8 @@ body {
   margin: 1vw;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr 3fr 5fr 1fr;
-  gap: 0.5vmin;
-  padding: 0.5vmin;
+  gap: 0.5rem;
+  padding: 0.5rem;
   min-height: 5vh;
   max-height: 93vh;
 }
@@ -34,7 +34,7 @@ body {
   color: #f8e8ff;
   text-align: center;
   font-family: "Playfair Display", serif;
-  letter-spacing: 0.025vw;
+  letter-spacing: 0.005rem;
   font-size: 1.2rem;
   font-weight: 500;
   box-shadow: 0 5px 20px rgba(200, 150, 255, 0.4);
