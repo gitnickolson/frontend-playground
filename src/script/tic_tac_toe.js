@@ -4,130 +4,116 @@ function createPlayer(name, symbol) {
   return { getName, getSymbol };
 }
 
-function createBoard() {
-  const fields = new Array(9).fill("_");
-
-  const getFields = () => fields;
-
-  const updateField = (index, symbol) => (fields[index - 1] = symbol);
-
-  return { getFields, updateField };
-}
-
 function createGame() {
-  const board = createBoard();
   let turnCounter = 0;
   let currentPlayer;
+  let playerX;
+  let playerO;
 
   const start = () => {
+    if (turnCounter > 0) {
+      clearPreviousGameBoard();
+    }
+
     const playerXName = prompt("Enter the name for player one (x).");
-    const playerX = createPlayer(playerXName, "x");
+    playerX = createPlayer(playerXName, "x");
 
     const playerOName = prompt("Enter the name for player two (o).");
-    const playerO = createPlayer(playerOName, "o");
+    playerO = createPlayer(playerOName, "o");
 
-    loop(playerX, playerO);
-  };
-
-  const loop = (playerX, playerO) => {
-    for (;;) {
-      currentPlayer = isEven(turnCounter) ? playerX : playerO;
-
-      printFields();
-      printPlayerTurnMsg(currentPlayer);
-
-      const input = prompt(
-        `Enter a number for a corresponding field, ${currentPlayer.getName()}(${currentPlayer.getSymbol()}).`,
-      );
-      if (!validInput(input)) {
-        console.log("Please enter a number from 1 to 9.");
-        loop(playerX, playerO);
-      } else if (fieldIsAlreadyLabeled(input)) {
-        console.log("Please choose an empty field.");
-        loop(playerX, playerO);
-      }
-
-      board.updateField(input, currentPlayer.getSymbol());
-
-      if (playerHasWon(currentPlayer)) {
-        printFields();
-        console.log(
-          `${currentPlayer.getName()}(${currentPlayer.getSymbol()}) won the game in ${turnCounter} turns!`,
-        );
-        break;
-      } else if (allFieldsFull()) {
-        printFields();
-        console.log("Game ended with no winner.");
-        break;
-      }
-
-      turnCounter++;
-    }
-  };
-
-  const validInput = (input) => {
-    const regex = /^([1-9])$/;
-    return regex.test(input);
-  };
-
-  const fieldIsAlreadyLabeled = (input) => {
-    return board.getFields()[input] !== "_";
-  };
-
-  function playerHasWon(player) {
-    const combinations = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-
-    for (let i = 0; i < combinations.length; i++) {
-      if (combinationIsHit(combinations[i], player)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  const combinationIsHit = (combination, player) => {
-    const symbol = player.getSymbol();
-    const fields = board.getFields();
-    console.log(symbol);
-
-    return (
-      fields[combination[0]] === symbol &&
-      fields[combination[1]] === symbol &&
-      fields[combination[2]] === symbol
+    const gridItems = document.querySelectorAll(".grid-item");
+    gridItems.forEach((element) =>
+      element.addEventListener("click", clickEvent, false),
     );
+
+    prepareEndButton();
   };
 
-  const allFieldsFull = () => {
-    const fields = board.getFields();
-    for (let i = 0; i < fields.length; i++) {
-      if (fields[i] === "_") {
+  const clickEvent = (event) => {
+    currentPlayer = isEven(turnCounter) ? playerX : playerO;
+
+    if (fieldAlreadyLabeled(event.target)) {
+      alert("Choose a field that is not already labeled.");
+      return;
+    } else {
+      event.target.textContent = currentPlayer.getSymbol();
+    }
+    turnCounter++;
+
+    if (isGameOver()) {
+      alert("Game ended in a tie.");
+    } else if (playerHasWon(currentPlayer)) {
+      alert(`${currentPlayer.getName()} won the game in ${turnCounter} turns.`);
+    }
+  };
+
+  const fieldAlreadyLabeled = (field) => {
+    return field.textContent;
+  };
+
+  const isGameOver = () => {
+    const gridItems = document.querySelectorAll(".grid-item");
+
+    for (let i = 0; i < gridItems.length; i++) {
+      if (!gridItems[i].textContent) {
         return false;
       }
     }
     return true;
   };
 
-  const printPlayerTurnMsg = (player) =>
-    console.log(`It's your turn ${player.getName()}(${player.getSymbol()}).`);
+  const playerHasWon = (currentPlayer) => {
+    const winningCombinations = [
+      ["top-left", "top-middle", "top-right"],
+      ["middle-left", "middle-middle", "middle-right"],
+      ["bottom-left", "bottom-middle", "bottm-right"],
+      ["top-left", "middle-left", "bottom-left"],
+      ["top-middle", "middle-middle", "bottom-middle"],
+      ["top-right", "middle-right", "bottom-right"],
+      ["top-left", "middle-middle", "bottom-right"],
+      ["top-right", "middle-middle", "bottom-left"],
+    ];
 
-  const printFields = () => {
-    const fields = board.getFields();
-    let fieldsString = "";
-
-    for (let i = 0; i < fields.length; i += 3) {
-      fieldsString += fields.slice(i, i + 3).join(" ") + "\n";
+    for (let i = 0; i < winningCombinations.length; i++) {
+      if (combinationIsHit(winningCombinations[i], currentPlayer)) {
+        return true;
+      }
     }
-    console.log(fieldsString);
+  };
+
+  const combinationIsHit = (combination, player) => {
+    const symbol = player.getSymbol();
+
+    return (
+      document.getElementById(combination[0]).textContent === symbol &&
+      document.getElementById(combination[1]).textContent === symbol &&
+      document.getElementById(combination[2]).textContent === symbol
+    );
+  };
+
+  const prepareEndButton = () => {
+    const endButton = document.createElement("button");
+    endButton.type;
+    endButton.classList.add("end-button");
+    endButton.textContent = "End game";
+    document.body.appendChild(endButton);
+
+    endButton.addEventListener("click", endGame, false);
+  };
+
+  const endGame = () => {
+    const gridItems = document.querySelectorAll(".grid-item");
+    gridItems.forEach((element) => (element.textContent = null));
+    gridItems.forEach((element) =>
+      element.removeEventListener("click", clickEvent),
+    );
+    document.querySelector(".end-button").remove();
+
+    turnCounter = 0;
+  };
+
+  const clearPreviousGameBoard = () => {
+    endGame();
   };
 
   return { start };
@@ -137,5 +123,8 @@ function isEven(n) {
   return n % 2 === 0;
 }
 
-const game = createGame();
-game.start();
+const startButton = document.querySelector(".start-game-button");
+startButton.addEventListener("click", (event) => {
+  const game = createGame();
+  game.start();
+});

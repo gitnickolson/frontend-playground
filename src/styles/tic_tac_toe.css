@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  position: fixed;
+  height: 80vh;
+  width: 40vw;
+  grid-template-areas: "top-left top-middle top-right" "middle-left middle-middle middle-right" "bottom-left bottom-middle bottom-right";
+}
+
+.grid-item {
+  text-align: center;
+  font-size: 10em;
+  font-family: Arial, serif;
+}
+
+#top-left {
+  grid-area: top-left;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+#top-middle {
+  grid-area: top-middle;
+  border-bottom: 3px solid black;
+}
+
+#top-right {
+  grid-area: top-right;
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+#middle-left {
+  grid-area: middle-left;
+  border-right: 3px solid black;
+}
+
+#middle-middle {
+  grid-area: middle-middle;
+}
+
+#middle-right {
+  grid-area: middle-right;
+  border-left: 3px solid black;
+}
+
+#bottom-left {
+  grid-area: bottom-left;
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+}
+
+#bottom-middle {
+  grid-area: bottom-middle;
+  border-top: 3px solid black;
+}
+
+#bottom-right {
+  grid-area: bottom-right;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+}
+
+.start-game-button {
+  position: fixed;
+  margin-left: 50vw;
+  margin-top: 40vh;
+}
+
+.end-button {
+  position: fixed;
+  margin-left: 50vw;
+  margin-top: 47vh;
+}

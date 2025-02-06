@@ -7,10 +7,23 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../styles/tic_tac_toe.css" />
+    <link rel="stylesheet" href="../styles/common_styles.css" />
     <title>Gitnickolson's Tic-tac-toe</title>
   </head>
   <body>
-    [x|x|x x|o|o o| | |]
+    <div class="grid-container">
+      <div class="grid-item" id="top-left"></div>
+      <div class="grid-item" id="top-middle"></div>
+      <div class="grid-item" id="top-right"></div>
+      <div class="grid-item" id="middle-left"></div>
+      <div class="grid-item" id="middle-middle"></div>
+      <div class="grid-item" id="middle-right"></div>
+      <div class="grid-item" id="bottom-left"></div>
+      <div class="grid-item" id="bottom-middle"></div>
+      <div class="grid-item" id="bottom-right"></div>
+    </div>
+    <button class="start-game-button">Start game</button>
     <script src="../script/tic_tac_toe.js"></script>
   </body>
 </html>
