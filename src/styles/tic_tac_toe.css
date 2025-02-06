@@ -1,79 +1,119 @@
 body {
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  font-family: "Poppins", sans-serif;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  position: fixed;
-  height: 80vh;
-  width: 40vw;
-  grid-template-areas: "top-left top-middle top-right" "middle-left middle-middle middle-right" "bottom-left bottom-middle bottom-right";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+  width: min(90vw, 400px);
+  height: min(90vw, 400px);
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .grid-item {
-  text-align: center;
-  font-size: 10em;
-  font-family: Arial, serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  background: #f8f8f8;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-#top-left {
-  grid-area: top-left;
-  border-right: 3px solid black;
-  border-bottom: 3px solid black;
+.grid-item:hover {
+  background: #e0e0e0;
 }
 
-#top-middle {
-  grid-area: top-middle;
-  border-bottom: 3px solid black;
+.grid-item:active {
+  transform: scale(0.95);
 }
 
+#top-left,
+#top-middle,
 #top-right {
-  grid-area: top-right;
-  border-left: 3px solid black;
-  border-bottom: 3px solid black;
+  border-bottom: 4px solid #333;
 }
 
-#middle-left {
-  grid-area: middle-left;
-  border-right: 3px solid black;
-}
-
-#middle-middle {
-  grid-area: middle-middle;
-}
-
+#middle-left,
+#middle-middle,
 #middle-right {
-  grid-area: middle-right;
-  border-left: 3px solid black;
+  border-bottom: 4px solid #333;
 }
 
+#top-left,
+#middle-left,
 #bottom-left {
-  grid-area: bottom-left;
-  border-top: 3px solid black;
-  border-right: 3px solid black;
+  border-right: 4px solid #333;
 }
 
+#top-middle,
+#middle-middle,
 #bottom-middle {
-  grid-area: bottom-middle;
-  border-top: 3px solid black;
-}
-
-#bottom-right {
-  grid-area: bottom-right;
-  border-top: 3px solid black;
-  border-left: 3px solid black;
+  border-right: 4px solid #333;
 }
 
 .start-game-button {
-  position: fixed;
-  margin-left: 50vw;
-  margin-top: 40vh;
+  position: absolute;
+  bottom: 5vh;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: #ff6b6b;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.end-button {
-  position: fixed;
-  margin-left: 50vw;
-  margin-top: 47vh;
+.start-game-button:hover {
+  background: #e63946;
+}
+
+.start-game-button:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 500px) {
+  .grid-container {
+    width: 60vw;
+  }
+
+  .grid-item {
+    font-size: 2.5rem;
+  }
+
+  .start-game-button {
+    font-size: 0.7rem;
+    padding: 8px 16px;
+    margin-left: 80vw;
+    height: 10%;
+  }
+}
+
+@media (max-height: 700px) {
+  .grid-container {
+    height: 30vw;
+  }
+}
+
+.go-back-button {
+  position: absolute;
+  margin-right: 90vw;
+  margin-top: 90vh;
 }

@@ -11,9 +11,7 @@ function createGame() {
   let playerO;
 
   const start = () => {
-    if (turnCounter > 0) {
-      clearPreviousGameBoard();
-    }
+    clearAndEndGame();
 
     const playerXName = prompt("Enter the name for player one (x).");
     playerX = createPlayer(playerXName, "x");
@@ -25,8 +23,6 @@ function createGame() {
     gridItems.forEach((element) =>
       element.addEventListener("click", clickEvent, false),
     );
-
-    prepareEndButton();
   };
 
   const clickEvent = (event) => {
@@ -40,10 +36,12 @@ function createGame() {
     }
     turnCounter++;
 
-    if (isGameOver()) {
-      alert("Game ended in a tie.");
-    } else if (playerHasWon(currentPlayer)) {
+    if (playerHasWon(currentPlayer)) {
       alert(`${currentPlayer.getName()} won the game in ${turnCounter} turns.`);
+      endGame();
+    } else if (isGameOver()) {
+      alert("Game ended in a tie.");
+      endGame();
     }
   };
 
@@ -91,28 +89,17 @@ function createGame() {
     );
   };
 
-  const prepareEndButton = () => {
-    const endButton = document.createElement("button");
-    endButton.type;
-    endButton.classList.add("end-button");
-    endButton.textContent = "End game";
-    document.body.appendChild(endButton);
-
-    endButton.addEventListener("click", endGame, false);
-  };
-
   const endGame = () => {
     const gridItems = document.querySelectorAll(".grid-item");
-    gridItems.forEach((element) => (element.textContent = null));
     gridItems.forEach((element) =>
       element.removeEventListener("click", clickEvent),
     );
-    document.querySelector(".end-button").remove();
-
     turnCounter = 0;
   };
 
-  const clearPreviousGameBoard = () => {
+  const clearAndEndGame = () => {
+    const gridItems = document.querySelectorAll(".grid-item");
+    gridItems.forEach((element) => (element.textContent = null));
     endGame();
   };
 
