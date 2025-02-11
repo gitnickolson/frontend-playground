@@ -1,0 +1,22 @@
+body {
+  text-align: center;
+}
+
+.visible {
+  display: none;
+  visibility: hidden;
+}
+
+.dropdown-elements {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 2px solid grey;
+  text-align: center;
+}
+
+.dropdown-element {
+  border: 1px solid lightblue;
+  border-radius: 20px;
+  margin: 0.5em;
+}
